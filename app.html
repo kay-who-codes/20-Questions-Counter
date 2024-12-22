@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Questions Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .counter-container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .count-button {
+            font-size: 2rem;
+            color: white;
+            background-color: darkgreen;
+            border: none;
+            border-radius: 8px;
+            padding: 20px 40px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .count-button.fail {
+            font-size: 2.5rem;
+            color: red;
+            background-color: transparent;
+            cursor: not-allowed;
+        }
+        .reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .reset-button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <h1>Questions Left:</h1>
+        <button id="countButton" class="count-button">20</button>
+        <br>
+        <button id="resetButton" class="reset-button">Reset</button>
+    </div>
+
+    <script>
+        const countButton = document.getElementById('countButton');
+        const resetButton = document.getElementById('resetButton');
+
+        let count = 20;
+
+        countButton.addEventListener('click', () => {
+            if (count > 0) {
+                count--;
+                updateButton();
+            } else {
+                countButton.textContent = 'Fail';
+                countButton.classList.add('fail');
+                countButton.disabled = true;
+            }
+        });
+
+        resetButton.addEventListener('click', () => {
+            count = 20;
+            updateButton();
+            countButton.classList.remove('fail');
+            countButton.disabled = false;
+        });
+
+        function updateButton() {
+            countButton.textContent = count;
+            if (count >= 12) {
+                countButton.style.backgroundColor = 'darkgreen';
+            } else if (count >= 5) {
+                countButton.style.backgroundColor = 'darkorange';
+            } else {
+                countButton.style.backgroundColor = 'darkred';
+            }
+        }
+    </script>
+</body>
+</html>

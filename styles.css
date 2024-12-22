@@ -1,0 +1,55 @@
+body {
+    /* Center content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light grey background */
+}
+
+.counter-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.count-button {
+    /* Styling for the main button */
+    font-size: 2rem;
+    color: white;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 8px;
+    padding: 20px 40px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth colour transition */
+}
+
+.count-button.fail {
+    /* Styling when the counter reaches 0 */
+    font-size: 2.5rem;
+    color: #ff8989;
+    background-color: transparent;
+    cursor: not-allowed; /* Disables further clicks */
+}
+
+.reset-button {
+    /* Styling for the reset button */
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #f0f0f0; /* Light grey when hovered */
+}
